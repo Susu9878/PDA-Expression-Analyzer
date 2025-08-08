@@ -1,0 +1,44 @@
+#0*n 1*m 2*m 3*n 
+
+S: q0 #initial state
+K: [q0, q1, q2, q3] #set of states
+E: [0, 1, 2, 3] #alphabet
+R: [0, 1] #stacks alphabet
+F: [q3] #final states
+
+T: #transitions
+  - state: q0 
+    input: 0
+    stack_pop: ε #ε es alt + 03b5
+    stack_push: 0
+    to_state: q0
+  - state: q0 
+    input: 1
+    stack_pop: ε #ε es alt + 03b5
+    stack_push: 1
+    to_state: q1
+  - state: q1
+    input: 1
+    stack_pop: ε #ε es alt + 03b5
+    stack_push: 1
+    to_state: q1
+  - state: q1
+    input: 2
+    stack_pop: 1 #ε es alt + 03b5
+    stack_push: ε
+    to_state: q2
+  - state: q2
+    input: 2
+    stack_pop: 1 #ε es alt + 03b5
+    stack_push: ε
+    to_state: q2
+  - state: q2
+    input: 3
+    stack_pop: 0 #ε es alt + 03b5
+    stack_push: ε
+    to_state: q3
+  - state: q3
+    input: 3
+    stack_pop: 0 #ε es alt + 03b5
+    stack_push: ε
+    to_state: q3

@@ -1,0 +1,26 @@
+#a^n b^n, n=>0
+
+S: q0 #initial state
+K: [q0, q1] #set of states
+E: [a, b] #alphabet
+R: [a] #stacks alphabet
+F: [q0, q1] #final states
+
+T: #transitions
+  - state: q0 
+    input: a
+    stack_pop: ε #ε es alt + 03b5
+    stack_push: a 
+    to_state: q0
+
+  - state: q0
+    input: b
+    stack_pop: a
+    stack_push: ε
+    to_state: q1
+
+  - state: q1
+    input: b
+    stack_pop: a
+    stack_push: ε
+    to_state: q1

@@ -1,0 +1,269 @@
+S: q0 #initial state
+K: [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9] #set of states
+E: ["[", "]", "(", ")", "*", "/", "+", "-", ".", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] #alphabet
+R: ["[", "(", "."] #alphabet stack
+F: [q2, q4, q7, q8] #final states
+
+#ε es alt + 03b5
+T: #transitions
+
+#q0 transitions
+  - state: q0
+    input: "["
+    stack_pop: ε
+    stack_push: "["
+    to_state: q0
+  - state: q0
+    input: "("
+    stack_pop: ε
+    stack_push: "("
+    to_state: q1
+  - state: q0
+    input: "+"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q0
+    input: "-"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q0
+    input: num
+    stack_pop: ε
+    stack_push: ε
+    to_state: q2
+#q1 transitions
+  - state: q1
+    input: "("
+    stack_pop: ε
+    stack_push: "("
+    to_state: q1
+  - state: q1
+    input: "+"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q1
+    input: "-"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q1
+    input: num
+    stack_pop: ε 
+    stack_push: ε
+    to_state: q2
+#q2 transitions
+  - state: q2
+    input: "]"
+    stack_pop: "[" 
+    stack_push: ε
+    to_state: q8
+  - state: q2
+    input: ")"
+    stack_pop: "(" 
+    stack_push: ε
+    to_state: q7
+  - state: q2
+    input: "*"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q9
+  - state: q2
+    input: "/"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q5
+  - state: q2
+    input: "+"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q2
+    input: "-"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q2
+    input: "."
+    stack_pop: ε 
+    stack_push: "."
+    to_state: q3
+  - state: q2
+    input: num
+    stack_pop:  ε
+    stack_push: ε
+    to_state: q2
+#q3 transitions
+  - state: q3
+    input: num
+    stack_pop: "." 
+    stack_push: ε
+    to_state: q4
+#q4 transitions
+  - state: q4
+    input: "]"
+    stack_pop: "[" 
+    stack_push: ε
+    to_state: q8
+  - state: q4
+    input: ")"
+    stack_pop: "(" 
+    stack_push: ε
+    to_state: q7
+  - state: q4
+    input: "*"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q9
+  - state: q4
+    input: "/"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q5
+  - state: q4
+    input: "+"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q4
+    input: "-"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q4
+    input: num
+    stack_pop: ε
+    stack_push: ε
+    to_state: q4
+#q5 transitions
+  - state: q5
+    input: "["
+    stack_pop: ε
+    stack_push: "["
+    to_state: q0
+  - state: q5
+    input: "("
+    stack_pop: ε 
+    stack_push: "("
+    to_state: q1
+  - state: q5
+    input: "+"
+    stack_pop: ε 
+    stack_push: ε
+    to_state: q6
+  - state: q5
+    input: "-"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q5
+    input: num
+    stack_pop: ε 
+    stack_push: ε
+    to_state: q2
+#q6 transitions
+  - state: q6
+    input: "["
+    stack_pop: ε 
+    stack_push: "["
+    to_state: q0
+  - state: q6
+    input: "("
+    stack_pop: ε
+    stack_push: "("
+    to_state: q1
+  - state: q6
+    input: num
+    stack_pop: ε 
+    stack_push: ε
+    to_state: q2
+#q7 transitions
+  - state: q7
+    input: "]"
+    stack_pop: "[" 
+    stack_push: ε
+    to_state: q8
+  - state: q7
+    input: ")"
+    stack_pop: "(" 
+    stack_push: ε
+    to_state: q7
+  - state: q7
+    input: "*"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q9
+  - state: q7
+    input: "/"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q5
+  - state: q7
+    input: "+"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q7
+    input: "-"
+    stack_pop: ε 
+    stack_push: ε
+    to_state: q6
+#q8 transitions
+  - state: q8
+    input: "]"
+    stack_pop: "[" 
+    stack_push: ε
+    to_state: q8
+  - state: q8
+    input: "*"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q9
+  - state: q8
+    input: "/"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q5
+  - state: q8
+    input: "+"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q8
+    input: "-"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+#q9 transitions
+  - state: q9
+    input: "["
+    stack_pop: ε 
+    stack_push: "["
+    to_state: q0
+  - state: q9
+    input: "("
+    stack_pop: ε
+    stack_push: "("
+    to_state: q1
+  - state: q9
+    input: "*"
+    stack_pop: ε 
+    stack_push: ε
+    to_state: q5
+  - state: q9
+    input: "+"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q9
+    input: "-"
+    stack_pop: ε
+    stack_push: ε
+    to_state: q6
+  - state: q9
+    input: num
+    stack_pop: ε
+    stack_push: ε
+    to_state: q2
